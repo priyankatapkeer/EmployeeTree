@@ -38,6 +38,15 @@ namespace EmployeeTree
 
                     }
                 }
+                if (employeeViewModal.Children?.Count > 0)
+                {
+                    foreach (var item in employeeViewModal.Children)
+                    {
+                        Console.WriteLine($"children Name: - {item.Name}\n");
+                        Console.WriteLine($"children Id: - {item.Id}");
+
+                    }
+                }
             }
             else
             {
