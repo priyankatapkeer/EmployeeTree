@@ -66,8 +66,10 @@ namespace EmployeeTree
             employees.Add(new Employee { Id = "1.1.1", Level = Level.SRMNGR, Name = "Vaibhav", ParentId = "1.1" });
             employees.Add(new Employee { Id = "1.1.2", Level = Level.SRMNGR, Name = "Swapnil", ParentId = "1.1" });
             employees.Add(new Employee { Id = "1.1.2.1", Level = Level.MNGR, Name = "Priyanka", ParentId = "1.1.2" });
-            employees.Add(new Employee { Id = "1.1.2.1.1", Level = Level.SE, Name = "Priya", ParentId = "1.1.2.1" });
-            employees.Add(new Employee { Id = "1.1.2.1.2", Level = Level.SE, Name = "Sankalpa", ParentId = "1.1.2.1" });
+            employees.Add(new Employee { Id = "1.1.2.1.1", Level = Level.TL, Name = "Pooja", ParentId = "1.1.2.1" });
+            employees.Add(new Employee { Id = "1.1.2.1.2", Level = Level.TL, Name = "Sankalpa", ParentId = "1.1.2.1" });
+            employees.Add(new Employee { Id = "1.1.2.1.1.1", Level = Level.SE, Name = "Rahul", ParentId = "1.1.2.1.1" });
+            employees.Add(new Employee { Id = "1.1.2.1.1.2", Level = Level.SE, Name = "Nilesh", ParentId = "1.1.2.1.1" });
             return employees;
         }
 
@@ -127,10 +129,4 @@ namespace EmployeeTree
             return employeeViewModal;
         }
     }
-
-    
-
-
-
-
 }
