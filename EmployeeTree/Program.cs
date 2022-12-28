@@ -1,4 +1,4 @@
-﻿using EmployeeTree.Modal;
+using EmployeeTree.Modal;
 using EmployeeTree.Modal.Enums;
 using System.Collections.Generic;
 using System;
@@ -23,18 +23,36 @@ namespace EmployeeTree
                 Console.WriteLine("employee found\n");
                 Console.WriteLine("----------------------------\n");
                 Console.WriteLine($"Employee Parent: - {employeeViewModal.Parent?.Name}\n");
-                Console.WriteLine($"Employee Parent Id: - {employeeViewModal.Parent?.Id}\n");
+                //Console.WriteLine($"Employee Parent Id: - {employeeViewModal.Parent?.Id}\n");
                 Console.WriteLine($"Employee Name: - {employeeViewModal.Employee.Name}\n");
                 Console.WriteLine($"Employee Id: - {employeeViewModal.Employee.Id}\n");
                 Console.WriteLine($"Employee Level: - {employeeViewModal.Employee.Level}\n");
                 Console.WriteLine("----------------------------\n");
+
+                
+                    var parent = employeeViewModal.Parent;
+                var name = employeeViewModal.Parent.Name;
+                var level = employeeViewModal.Parent.Level;
+                    while(parent.Parent!=null)
+                    {
+                    Console.WriteLine($"{name} superior: - {parent.Parent?.Name}\n");
+                    Console.WriteLine($"Superior Level: - {level}\n");
+                    name = parent.Parent?.Name;
+                    parent = parent.Parent;
+                    level = parent.Parent!=null ? parent.Parent.Level:Level.VP;
+                    Console.WriteLine("----------------------------\n");
+
+                }
+
 
                 if (employeeViewModal.SubOrdinates?.Count > 0)
                 {
                     foreach (var item in employeeViewModal.SubOrdinates)
                     {
                         Console.WriteLine($"subordinate Name: - {item.Name}\n");
-                        Console.WriteLine($"subordinate Id: - {item.Id}");
+                        Console.WriteLine($"subordinate Level: - {item.Level}");
+                        Console.WriteLine("----------------------------\n");
+
 
                     }
                 }
@@ -43,7 +61,9 @@ namespace EmployeeTree
                     foreach (var item in employeeViewModal.Children)
                     {
                         Console.WriteLine($"children Name: - {item.Name}\n");
-                        Console.WriteLine($"children Id: - {item.Id}");
+                        Console.WriteLine($"children Level: - {item.Level}");
+                        Console.WriteLine("----------------------------\n");
+
 
                     }
                 }
@@ -59,7 +79,6 @@ namespace EmployeeTree
 
         private static List<Employee> CreateData()
         {
-
             List<Employee> employees = new List<Employee>();
             employees.Add(new Employee { Id = Level.VP.ToString(), Level = Level.VP, Name = "Hari", ParentId = null });
             employees.Add(new Employee { Id = "1.1", Level = Level.AVP, Name = "Tushar", ParentId = Level.VP.ToString() });
@@ -129,4 +148,10 @@ namespace EmployeeTree
             return employeeViewModal;
         }
     }
+
+    
+
+
+
+
 }
