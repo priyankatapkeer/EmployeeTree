@@ -6,10 +6,11 @@ namespace EmployeeTree.Modal.Enums
 {
     public enum Level
     {
-        VP=1,
+         VP=1,
         AVP=2,
         SRMNGR=3,
         MNGR=4,
-        SE=5
+        TL=5,
+        SE=6
     }
 }
